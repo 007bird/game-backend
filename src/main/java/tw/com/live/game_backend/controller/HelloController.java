@@ -8,39 +8,42 @@ import java.util.Map;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import tw.com.live.game_backend.entity.Stream;
+
 @RestController
 public class HelloController {
 
-	@GetMapping("/streams")
-	public List<Map<String,Object>> streams(){
-		  List<Map<String, Object>> list = new ArrayList<>();
-		  
-		  Map<String, Object> stream1 = new HashMap<>();
-		    stream1.put("id", 1);
-		    stream1.put("title", "Minecraft 生存");
-		    stream1.put("streamer", "Hamster");
+	@GetMapping("/")
+    public String hello() {
+        return "Hello Spring Boot";
+    }
 
-		    Map<String, Object> stream2 = new HashMap<>();
-		    stream2.put("id", 2);
-		    stream2.put("title", "星海爭霸 II");
-		    stream2.put("streamer", "Raynor");
+    @GetMapping("/hamster")
+    public String hamster() {
+        return "倉鼠萬歲!";
+    }
+//	@GetMapping("/streams")
+//	public List<Stream> streams() {
+//
+//		List<Stream> list = new ArrayList<>();
+//
+//		list.add(new Stream(1, "Minecraft 生存", "Hamster"));
+//		list.add(new Stream(2, "星海爭霸II", "Raynor"));
+//
+//		return list;
+//	}
 
-		    list.add(stream1);
-		    list.add(stream2);
-
-		    return list;
-	}
-	
 	@GetMapping("/member")
-	public  Map<String,Object> member() {;
-		
-		Map<String,Object> data = new HashMap<>();
-	
-	    data.put("id", 1);
-	    data.put("name", "Hamster");
-	    data.put("job", "Backend Student");
-	    
-	    return data;
+	public Map<String, Object> member() {
+		;
+
+		Map<String, Object> data = new HashMap<>();
+
+		data.put("id", 1);
+		data.put("name", "Hamster");
+		data.put("job", "Backend Student");
+
+		return data;
 	}
-	
+
 }
